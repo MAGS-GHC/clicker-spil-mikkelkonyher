@@ -6,32 +6,40 @@
     <title>Clicker Spil</title>
     <script src="app.js"></script>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     
     <p id="cookie-text">Cookies: 0</p>
 
-    <img id="Cookie" src="cookie image.jpg" width="400" height="400" onclick="bakeCookie()">
+    <img id="Cookie" src="cookie image.jpg" width="250" height="250" onclick="bakeCookie()">
 
     <p id="cookie-text">Alright! I'll give you 2 cookies you worthless piece of shit !!</p>
 
-    <img id="Gordon-text" src="gordon.jpg" width="400" height="400" onclick="gordon()">
+    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
 
-    
-    <img id="dronning-text" src="dronning.webp" width="400" height="400" onclick="dronningUpgrade()">
+    <p id="Dronning-text">Dronningen koster kager, men gør dig til en bedre bager !</p>
 
+    <img id="dronning-text" src="dronning.webp" width="250" height="250" onclick="dronningUpgrade()">
 
-
-    
-
-    
 
 
     
 
-    <script>
+    
+<script>
+
+let cookies = 0;
+
+function bakeCookie(){
+    cookies++
+    console.log(cookies);
+}
+</script>
+
+    
+ <script>
         let Cookies = 0;
-        let cps = 0;
 
         function bakeCookie(){
             Cookies += 1;
@@ -49,27 +57,32 @@
         }
         </script>
 
-   <script>
-
-    function dronningUpgrade() {
-        if(Cookies >= 20){
+<script>
+   
+   let cps = 0;
+   let upgradePurchased = false;
+   
+   function dronningUpgrade() {
+    if (!upgradePurchased){
+   if(Cookies >= 20){
             Cookies -= 20;
             cps += 1;
+            upgradePurchased = true;
+        }else {
+            alert("Magrethe vil have kager, hvis hun skal ansættes som bager. Det koster 20 cookies, unge mand !");
         }
-
-
-
+    }else { 
+        alert("Du har allerede ansat magrethe");
     }
+    }
+    
    
    setInterval(function() {
     Cookies += cps;
     document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
 
    }, 1000 )
-
-
-
-   </script>
+</script>
 
 
 </body>
