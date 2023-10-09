@@ -9,5 +9,20 @@
 </head>
 <body>
     
+    <p id="cookie-text">Cookies: 0</p>
+
+    <img id="Cookie" src="cookie image.jpg" onclick="bakeCookie()">
+
+    <script>
+        let Cookies = 0;
+
+        function bakeCookie(){
+            Cookies += 1;
+            document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+        }
+    </script>
+
+<p id="cookie-text">Cookies: 0</p>
+
 </body>
 </html>
