@@ -11,16 +11,27 @@
     
     <p id="cookie-text">Cookies: 0</p>
 
-    <img id="Cookie" src="cookie image.jpg" onclick="bakeCookie()">
+    <img id="Cookie" src="cookie image.jpg" width="400" height="400" onclick="bakeCookie()">
 
-   
+    <p id="cookie-text">Alright! I'll give you 2 cookies you worthless piece of shit !!</p>
 
-    <img id="Cookie" src="gordon.jpg" onclick="gordon()">
+    <img id="Gordon-text" src="gordon.jpg" width="400" height="400" onclick="gordon()">
+
+    
+    <img id="dronning-text" src="dronning.webp" width="400" height="400" onclick="dronningUpgrade()">
+
+
+
+    
+
+    
+
 
     
 
     <script>
         let Cookies = 0;
+        let cps = 0;
 
         function bakeCookie(){
             Cookies += 1;
@@ -33,8 +44,32 @@
         function gordon(){
             Cookies +=2;
             document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+
+            
         }
-    </script>
+        </script>
+
+   <script>
+
+    function dronningUpgrade() {
+        if(Cookies >= 20){
+            Cookies -= 20;
+            cps += 1;
+        }
+
+
+
+    }
+   
+   setInterval(function() {
+    Cookies += cps;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+
+   }, 1000 )
+
+
+
+   </script>
 
 
 </body>
