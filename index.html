@@ -13,6 +13,12 @@
 
     <img id="Cookie" src="cookie image.jpg" onclick="bakeCookie()">
 
+   
+
+    <img id="Cookie" src="gordon.jpg" onclick="gordon()">
+
+    
+
     <script>
         let Cookies = 0;
 
@@ -22,7 +28,14 @@
         }
     </script>
 
-<p id="cookie-text">Cookies: 0</p>
+    <script>
+
+        function gordon(){
+            Cookies +=2;
+            document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+        }
+    </script>
+
 
 </body>
 </html>
