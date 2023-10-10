@@ -9,6 +9,8 @@
     
 </head>
 <body>
+
+    
     
     <p id="cookie-text">Cookies: 0</p>
 
@@ -18,15 +20,14 @@
 
     <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
 
-    <p id="Dronning-text">Dronningen koster kager, men gør dig til en bedre bager !</p>
+    <p id="Dronning-text">Pris for Dronning-upgrade: 20 Cookies </p>
 
-    <img id="dronning-text" src="dronning.webp" width="250" height="250" onclick="dronningUpgrade()">
+    <img id="dronning" src="dronning.webp" width="250" height="250" onclick="dronningUpgrade()">
 
+    <p id="prisn yexy">Pris for Prins Henrik-upgrade: 50 Cookies </p>
 
+    <img id="prins" src="prins-henrik.jpg" width="350" height="250" onclick="prinsHenrik()">
 
-    
-
-    
 <script>
 
 let cookies = 0;
@@ -83,6 +84,35 @@ function bakeCookie(){
 
    }, 1000 )
 </script>
+
+<script>
+  let cps2 = 0;
+   let upgradePurchased2 = false;
+   
+   function prinsHenrik() {
+    if (!upgradePurchased2){
+   if(Cookies >= 50){
+            Cookies -= 50;
+            cps += 1;
+            upgradePurchased2 = true;
+        }else {
+            alert("Prins Henrik koster 50 cookies !");
+        }
+    }else { 
+        alert("Du har allerede ansat prinsgemalen");
+    }
+    }
+    
+   
+   setInterval(function() {
+    Cookies += cps;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+
+   }, 500 )
+
+</script>
+
+
 
 
 </body>
