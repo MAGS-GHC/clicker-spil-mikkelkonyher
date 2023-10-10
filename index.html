@@ -14,21 +14,26 @@
     
     <p id="cookie-text">Cookies: 0</p>
 
+    <p id="upgrade-text">Upgrades:</p>
+
     <img id="Cookie" src="cookie image.jpg" width="250" height="250" onclick="bakeCookie()">
-
-    <p id="Gordon text">Alright! I'll give you 2 cookies you worthless piece of shit !!</p>
-
-    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
-
-    <p id="Dronning-text">Pris for Dronning-upgrade: 20 Cookies </p>
+    
+    <p id="Dronning-text">Dronning-upgrade: 1 cookie per/sekund. Pris: 20 Cookies </p>
 
     <img id="dronning" src="dronning.webp" width="250" height="250" onclick="dronningUpgrade()">
+   
+    <p id="Gordon text">Gordon Ramsay Upgrade: 5 cookies per klik. Pris: 50 cookies</p>
 
-    <p id="prisn yexy">Pris for Prins Henrik-upgrade: 50 Cookies </p>
+    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
+    
+    <p id="prins text">Prins Henrik-upgrade: 2 cookies per/sekund pris: 100 Cookies </p>
 
     <img id="prins" src="prins-henrik.jpg" width="350" height="250" onclick="prinsHenrik()">
 
 <script>
+
+    //alle Variabler i app.js
+
 
 
 </script>
@@ -37,39 +42,63 @@
  <script>
 
     //CAKE +1 
-        let cookies = 0;
+        
 
         function bakeCookie(){
-            cookies += 1;
-            document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+            
+
+            if(gordonActive){
+                cookies += 5;
+            }else {
+                cookies += 1;
+            }
+       
+        document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+
         }
+        
     </script>
 
     <script>
 
-        //GORODN +2 
+        //GORODN +5 per click
 
-        function gordon(){
-            cookies +=2;
-            document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+        function gordon() {
+        if (!upgradePurchased3){
+    if (cookies >= 50) {
+        cookies -= 50+5;
+        cookies += 5;
+        upgradePurchased3 = true;
+        gordonActive = true;
+        document.getElementById("cookie").innerHTML = "Cookies: " + cookies;
+    } else {
+        gordonActive = false;
 
-            
-        }
-        </script>
+        alert("Gordon Upgrade koster 50 Cookies, men giver dig derefter +5 cookies per click");
+    } 
+    
+}else {
+
+    alert("Du har allerede Gordon Ramsay Upgrade");
+
+}
+        
+    } 
+
+        
+</script>
 
 <script>
 
     //Dronning upgrade +1 per sek
    
-   let cps = 0;
-   let upgradePurchased = false;
-   
-   function dronningUpgrade() {
+    function dronningUpgrade() {
     if (!upgradePurchased){
    if(cookies >= 20){
-            cookies -= 20;
+            cookies -= 20 + 1;
             cps += 1;
             upgradePurchased = true;
+            document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Dronning updgrade 1 cookie per/sek" 
         }else {
             alert("Magrethe vil have kager, hvis hun skal ansættes som bager. Det koster 20 cookies, unge mand !");
         }
@@ -90,15 +119,14 @@
 
 //Prins Henrik +2 per sek    
 
-  let cps2 = 0;
-   let upgradePurchased2 = false;
-   
-   function prinsHenrik() {
+function prinsHenrik() {
     if (!upgradePurchased2){
-   if(cookies >= 50){
-            cookies -= 50;
+   if(cookies >= 100){
+            cookies -= 100 +1;
             cps2 += 1;
             upgradePurchased2 = true;
+            document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Prins Henrik Upgrade"
+
         }else {
             alert("Prins Henrik koster 50 cookies !");
         }
