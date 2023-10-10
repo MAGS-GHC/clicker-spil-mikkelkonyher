@@ -16,7 +16,7 @@
 
     <img id="Cookie" src="cookie image.jpg" width="250" height="250" onclick="bakeCookie()">
 
-    <p id="cookie-text">Alright! I'll give you 2 cookies you worthless piece of shit !!</p>
+    <p id="Gordon text">Alright! I'll give you 2 cookies you worthless piece of shit !!</p>
 
     <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
 
@@ -30,43 +30,44 @@
 
 <script>
 
-let cookies = 0;
 
-function bakeCookie(){
-    cookies++
-    console.log(cookies);
-}
 </script>
 
     
  <script>
-        let Cookies = 0;
+
+    //CAKE +1 
+        let cookies = 0;
 
         function bakeCookie(){
-            Cookies += 1;
-            document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+            cookies += 1;
+            document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
         }
     </script>
 
     <script>
 
+        //GORODN +2 
+
         function gordon(){
-            Cookies +=2;
-            document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+            cookies +=2;
+            document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
 
             
         }
         </script>
 
 <script>
+
+    //Dronning upgrade +1 per sek
    
    let cps = 0;
    let upgradePurchased = false;
    
    function dronningUpgrade() {
     if (!upgradePurchased){
-   if(Cookies >= 20){
-            Cookies -= 20;
+   if(cookies >= 20){
+            cookies -= 20;
             cps += 1;
             upgradePurchased = true;
         }else {
@@ -79,21 +80,24 @@ function bakeCookie(){
     
    
    setInterval(function() {
-    Cookies += cps;
-    document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+    cookies += cps;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
 
    }, 1000 )
 </script>
 
 <script>
+
+//Prins Henrik +2 per sek    
+
   let cps2 = 0;
    let upgradePurchased2 = false;
    
    function prinsHenrik() {
     if (!upgradePurchased2){
-   if(Cookies >= 50){
-            Cookies -= 50;
-            cps += 1;
+   if(cookies >= 50){
+            cookies -= 50;
+            cps2 += 1;
             upgradePurchased2 = true;
         }else {
             alert("Prins Henrik koster 50 cookies !");
@@ -105,8 +109,8 @@ function bakeCookie(){
     
    
    setInterval(function() {
-    Cookies += cps;
-    document.getElementById("cookie-text").innerHTML = "Cookies: " + Cookies;
+    cookies += cps2;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
 
    }, 500 )
 
