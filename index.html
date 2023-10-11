@@ -11,7 +11,8 @@
 <style>
     #Overskrift {
       text-align: center; 
-      font-size: 22px;    
+      font-size: 22px;
+      color: darkred;    
     }
 
 
@@ -31,26 +32,28 @@
     <audio id="dronningAudio" src="magrethe.mp3"></audio>
 
     <audio id="gordonAudio" src="gordonLyd.mp3"></audio>
+
+    <audio id="prinsHenrikAudio" src="prinshenriklyd.mp3"></audio>
     
 
     
-    <p id="Overskrift"><b>Julemandens rensdyr strækker medmindre at de får massere af rødvin. Red julen med hjælp fra kongehuset og Gordon Ramsay!</b></p>
+    <p id="Overskrift"><b>Julemandens rensdyr strejker medmindre at de får massere af rødvin. Red julen med hjælp fra kongehuset og Gordon Ramsay!</b></p>
     
     <p id="cookie-text">Flasker vin: 0</p>
 
-    <img id="reindeer" src="rensdyr2.jpg"width="250" height="250" onclick="playrensdyrAudio()">
+    <img id="reindeer" src="rensdyr2.jpg"width="250" height="250" onclick="playRensdyrAudio()">
     
     <p id="upgrade-text">Dronning opgradering: IKKE AKTIVERET Pris: 20 flasker vin</p>
     
-    <img id="dronning" src="dronning.webp" width="150" height="150" onclick="playdronningAudio()">
+    <img id="dronning" src="dronning.webp" width="150" height="150" onclick="playDronningAudio()">
     
     <p id="gordon-text">Gordon Ramsay opgradering: IKKE AKTIVERET Pris: 50 flasker vin</p>
 
-    <img id="Gordon" src="gordon.jpg" width="150" height="150" onclick="gordonUpgrade()">
+    <img id="Gordon" src="gordon.jpg" width="150" height="150" onclick="playGordonAudio()">
     
     <p id="prins-text">Prins Henrik opgradering: IKKE AKTIVERET Pris: 100 flasker vin </p>
 
-    <img id="prins" src="HenrikVin.jpg" width="150" height="150" onclick="prinsHenrikUpgrade()">
+    <img id="prins" src="HenrikVin.jpg" width="150" height="150" onclick="playPrinsHenrikAudio()">
 
   
    
@@ -65,20 +68,22 @@
 
 <script>
 
-   function playrensdyrAudio(){
+    //Lyd og Rensdyr +1
+
+   function playRensdyrAudio(){
     let sound = document.getElementById("rensdyrAudio");
     sound.play();
 
-    bakeCookie();
+    lavVin();
    }
 
 </script>
 
 <script>
     
-    //Lyd og Dronning
+//Lyd og Dronning upgrade
     
-    function playdronningAudio() {
+    function playDronningAudio() {
     let sound = document.getElementById("dronningAudio");
     sound.play();
     
@@ -86,13 +91,35 @@
   }
 </script>
 
+<script>function playGordonAudio() {
+    let sound = document.getElementById("gordonAudio");
+    sound.play();
+
+    gordonUpgrade();
+}
+    
+    
+    </script>
+
+    <script>
+
+function playPrinsHenrikAudio(){
+    let sound = document.getElementById("prinsHenrikAudio");
+    sound.play();
+
+    prinsHenrikUpgrade();
+   }
+
+
+    </script>
+
 
  <script>
 
-    //CAKE +1 eller +5 med gordon upgrade
+//vin +1 eller +5 med gordon upgrade
         
 
-        function bakeCookie(){
+        function lavVin(){
             
 
             if(gordonActive){
@@ -105,11 +132,11 @@
 
         }
         
-    </script>
+</script>
 
-    <script>
+<script>
 
-        //GORODN +5 per click
+ //GORODN +5 per click
 
         function gordonUpgrade() {
         if (!upgradePurchased){
@@ -176,7 +203,7 @@ function prinsHenrikUpgrade() {
             
 
         }else {
-            alert("Prins Henrik koster 50 flasker vin. Opgraderingen giver dig 2 flasker vin per/sek");
+            alert("Prins Henrik koster 100 flasker vin. Opgraderingen giver dig 2 flasker vin per/sek");
         }
     }else { 
         alert("Du har allerede aktiveret prinsgemalen");
