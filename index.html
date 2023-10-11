@@ -24,11 +24,11 @@
    
     <p id="Gordon text">Gordon Ramsay Upgrade: 5 cookies per klik. Pris: 50 cookies</p>
 
-    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordon()">
+    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordonUpgrade()">
     
     <p id="prins text">Prins Henrik-upgrade: 2 cookies per/sekund pris: 100 Cookies </p>
 
-    <img id="prins" src="prins-henrik.jpg" width="350" height="250" onclick="prinsHenrik()">
+    <img id="prins" src="prins-henrik.jpg" width="350" height="250" onclick="prinsHenrikUpgrade()">
 
 <script>
 
@@ -41,7 +41,7 @@
     
  <script>
 
-    //CAKE +1 
+    //CAKE +1 eller +5 med gordon upgrade
         
 
         function bakeCookie(){
@@ -63,12 +63,11 @@
 
         //GORODN +5 per click
 
-        function gordon() {
-        if (!upgradePurchased3){
+        function gordonUpgrade() {
+        if (!upgradePurchased){
     if (cookies >= 50) {
-        cookies -= 50+5;
-        cookies += 5;
-        upgradePurchased3 = true;
+        cookies -= 50;
+        upgradePurchased = true;
         gordonActive = true;
         document.getElementById("cookie").innerHTML = "Cookies: " + cookies;
     } else {
@@ -93,11 +92,11 @@
     //Dronning upgrade +1 per sek
    
     function dronningUpgrade() {
-    if (!upgradePurchased){
+    if (!upgradePurchased2){
    if(cookies >= 20){
-            cookies -= 20 + 1;
+            cookies -= 20;
             cps += 1;
-            upgradePurchased = true;
+            upgradePurchased2 = true;
             document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Dronning updgrade 1 cookie per/sek" 
         }else {
             alert("Magrethe vil have kager, hvis hun skal ansættes som bager. Det koster 20 cookies, unge mand !");
@@ -119,12 +118,12 @@
 
 //Prins Henrik +2 per sek    
 
-function prinsHenrik() {
-    if (!upgradePurchased2){
+function prinsHenrikUpgrade() {
+    if (!upgradePurchased3){
    if(cookies >= 100){
-            cookies -= 100 +1;
+            cookies -= 100;
             cps2 += 1;
-            upgradePurchased2 = true;
+            upgradePurchased3 = true;
             document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Prins Henrik Upgrade"
 
         }else {
