@@ -14,3 +14,8 @@ let upgradePurchased = false;
 let upgradePurchased2 = false;
 let upgradePurchased3 = false;
 let gordonActive = false;
+
+
+
+
+

@@ -8,27 +8,52 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
+<style>
+    #Overskrift {
+      text-align: center; 
+      font-size: 22px;    
+    }
+
+
+
+   
+  </style>
 <body>
 
-    
-    
-    <p id="cookie-text">Cookies: 0</p>
 
-    <p id="upgrade-text">Upgrades:</p>
+    <audio controls autoplay loop>
+        <source src="Last.mp3">
+    </audio>
 
-    <img id="Cookie" src="cookie image.jpg" width="250" height="250" onclick="bakeCookie()">
+     
+    <audio id="rensdyrAudio" src="reindeer.mp3"></audio>
+
+    <audio id="dronningAudio" src="magrethe.mp3"></audio>
+
+    <audio id="gordonAudio" src="gordonLyd.mp3"></audio>
     
-    <p id="Dronning-text">Dronning-upgrade: 1 cookie per/sekund. Pris: 20 Cookies </p>
 
-    <img id="dronning" src="dronning.webp" width="250" height="250" onclick="dronningUpgrade()">
+    
+    <p id="Overskrift"><b>Julemandens rensdyr strækker medmindre at de får massere af rødvin. Red julen med hjælp fra kongehuset og Gordon Ramsay!</b></p>
+    
+    <p id="cookie-text">Flasker vin: 0</p>
+
+    <img id="reindeer" src="rensdyr2.jpg"width="250" height="250" onclick="playrensdyrAudio()">
+    
+    <p id="upgrade-text">Dronning opgradering: IKKE AKTIVERET Pris: 20 flasker vin</p>
+    
+    <img id="dronning" src="dronning.webp" width="150" height="150" onclick="playdronningAudio()">
+    
+    <p id="gordon-text">Gordon Ramsay opgradering: IKKE AKTIVERET Pris: 50 flasker vin</p>
+
+    <img id="Gordon" src="gordon.jpg" width="150" height="150" onclick="gordonUpgrade()">
+    
+    <p id="prins-text">Prins Henrik opgradering: IKKE AKTIVERET Pris: 100 flasker vin </p>
+
+    <img id="prins" src="HenrikVin.jpg" width="150" height="150" onclick="prinsHenrikUpgrade()">
+
+  
    
-    <p id="Gordon text">Gordon Ramsay Upgrade: 5 cookies per klik. Pris: 50 cookies</p>
-
-    <img id="Gordon" src="gordon.jpg" width="250" height="250" onclick="gordonUpgrade()">
-    
-    <p id="prins text">Prins Henrik-upgrade: 2 cookies per/sekund pris: 100 Cookies </p>
-
-    <img id="prins" src="prins-henrik.jpg" width="350" height="250" onclick="prinsHenrikUpgrade()">
 
 <script>
 
@@ -38,7 +63,30 @@
 
 </script>
 
+<script>
+
+   function playrensdyrAudio(){
+    let sound = document.getElementById("rensdyrAudio");
+    sound.play();
+
+    bakeCookie();
+   }
+
+</script>
+
+<script>
     
+    //Lyd og Dronning
+    
+    function playdronningAudio() {
+    let sound = document.getElementById("dronningAudio");
+    sound.play();
+    
+    dronningUpgrade();
+  }
+</script>
+
+
  <script>
 
     //CAKE +1 eller +5 med gordon upgrade
@@ -53,7 +101,7 @@
                 cookies += 1;
             }
        
-        document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+        document.getElementById("cookie-text").innerHTML = "Flasker vin: " + cookies;
 
         }
         
@@ -69,16 +117,15 @@
         cookies -= 50;
         upgradePurchased = true;
         gordonActive = true;
-        document.getElementById("cookie").innerHTML = "Cookies: " + cookies;
+        document.getElementById("gordon-text").innerHTML = "Gordon Ramsay opgradering: "  +  "AKTIVERET +5 flasker vin per/klik"
     } else {
-        gordonActive = false;
 
-        alert("Gordon Upgrade koster 50 Cookies, men giver dig derefter +5 cookies per click");
+        alert("Gordon opgradering koster 50 flasker vin, men giver dig derefter +5 flasker vin per klik");
     } 
     
 }else {
 
-    alert("Du har allerede Gordon Ramsay Upgrade");
+    alert("Du har allerede Gordon Ramsay opgradering");
 
 }
         
@@ -97,19 +144,20 @@
             cookies -= 20;
             cps += 1;
             upgradePurchased2 = true;
-            document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Dronning updgrade 1 cookie per/sek" 
+            dronningActive = true;
+            document.getElementById("upgrade-text").innerHTML = "Dronning opgradering: "  +  "AKTIVERET 1 flaske vin per/sek" 
         }else {
-            alert("Magrethe vil have kager, hvis hun skal ansættes som bager. Det koster 20 cookies, unge mand !");
+            alert("Magrethe vil have 20 flasker vin for sin hjælp. Opgraderingen giver 2 flasker vin per/sek");
         }
     }else { 
-        alert("Du har allerede ansat magrethe");
+        alert("Du har allerede aktiveret Magrethe");
     }
     }
     
    
    setInterval(function() {
     cookies += cps;
-    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+    document.getElementById("cookie-text").innerHTML = "Flasker vin:"+ cookies;
 
    }, 1000 )
 </script>
@@ -124,20 +172,21 @@ function prinsHenrikUpgrade() {
             cookies -= 100;
             cps2 += 1;
             upgradePurchased3 = true;
-            document.getElementById("upgrade-text").innerHTML = "Upgrade: " + "Prins Henrik Upgrade"
+            document.getElementById("prins-text").innerHTML = "Prins-Henrik opgradering: "  +  "AKTIVERET 2 rensdyr per/sek"
+            
 
         }else {
-            alert("Prins Henrik koster 50 cookies !");
+            alert("Prins Henrik koster 50 flasker vin. Opgraderingen giver dig 2 flasker vin per/sek");
         }
     }else { 
-        alert("Du har allerede ansat prinsgemalen");
+        alert("Du har allerede aktiveret prinsgemalen");
     }
     }
     
    
    setInterval(function() {
     cookies += cps2;
-    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+    document.getElementById("cookie-text").innerHTML = "Flasker vin: " + cookies;
 
    }, 500 )
 
