@@ -41,6 +41,8 @@
     
     <p id="cookie-text">Flasker vin: 0</p>
 
+    <p id="highscore-text">Highscore: 0</p>
+
     <img id="reindeer" src="rensdyr2.jpg"width="250" height="250" onclick="playRensdyrAudio()">
     
     <p id="upgrade-text">Dronning opgradering: IKKE AKTIVERET Pris: 20 flasker vin</p>
@@ -60,7 +62,7 @@
 
 <script>
 
-    //alle Variabler i app.js
+    // Variabler i app.js
 
 
 
@@ -68,7 +70,20 @@
 
 <script>
 
-    //Lyd og Rensdyr +1
+function maxscore(){
+    if(currentscore > highscore){
+        highscore = currentscore;
+
+        document.getElementById("highscore-text").innerHTML = ("Highscore: " + highscore);
+    }
+}
+
+
+</script>
+
+<script>
+
+    //Lyd og Rensdyr function
 
    function playRensdyrAudio(){
     let sound = document.getElementById("rensdyrAudio");
@@ -81,7 +96,7 @@
 
 <script>
     
-//Lyd og Dronning upgrade
+//Lyd og Dronning upgrade function
     
     function playDronningAudio() {
     let sound = document.getElementById("dronningAudio");
@@ -91,7 +106,11 @@
   }
 </script>
 
-<script>function playGordonAudio() {
+<script>
+
+    //Lyd Gordon + upgrade function
+
+    function playGordonAudio() {
     let sound = document.getElementById("gordonAudio");
     sound.play();
 
@@ -124,10 +143,14 @@ function playPrinsHenrikAudio(){
 
             if(gordonActive){
                 cookies += 5;
+                currentscore +=5
             }else {
                 cookies += 1;
+                currentscore += 1; 
             }
-       
+
+        
+       maxscore();
         document.getElementById("cookie-text").innerHTML = "Flasker vin: " + cookies;
 
         }
@@ -171,7 +194,6 @@ function playPrinsHenrikAudio(){
             cookies -= 20;
             cps += 1;
             upgradePurchased2 = true;
-            dronningActive = true;
             document.getElementById("upgrade-text").innerHTML = "Dronning opgradering: "  +  "AKTIVERET 1 flaske vin per/sek" 
         }else {
             alert("Magrethe vil have 20 flasker vin for sin hjælp. Opgraderingen giver 2 flasker vin per/sek");
@@ -181,9 +203,10 @@ function playPrinsHenrikAudio(){
     }
     }
     
-   
    setInterval(function() {
     cookies += cps;
+    currentscore += cps;
+    maxscore();
     document.getElementById("cookie-text").innerHTML = "Flasker vin:"+ cookies;
 
    }, 1000 )
@@ -213,9 +236,13 @@ function prinsHenrikUpgrade() {
    
    setInterval(function() {
     cookies += cps2;
+    currentscore += cps2;
     document.getElementById("cookie-text").innerHTML = "Flasker vin: " + cookies;
+    maxscore();
 
    }, 500 )
+
+   
 
 </script>
 

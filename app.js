@@ -14,8 +14,10 @@ let upgradePurchased = false;
 let upgradePurchased2 = false;
 let upgradePurchased3 = false;
 let gordonActive = false;
+document.cookie = "flasker vin";
+
+let highscore = 0;
+let currentscore = 0; 
 
 
-
-
-
+console.log(navigator.cookieEnabled);
